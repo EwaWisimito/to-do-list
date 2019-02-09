@@ -14,8 +14,8 @@ class Task extends Component {
 
     keyDown = (event) => {
         if (event.keyCode === 13){
-            //this.props.createHandler(this.state.name);
-            this.setState({name: ''})
+            this.props.updateHandler(this.state.name);
+            this.setState({name: '', editMode: false})
         }
     }
 

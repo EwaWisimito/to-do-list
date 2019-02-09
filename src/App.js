@@ -40,6 +40,17 @@ class App extends Component {
      this.setState({tasks});
 
    }
+   updateHandler =  (newName, taskId) => {
+    const taskIndex = this.state.tasks.findIndex(task => task.id === taskId);
+    const task = {...this.state.tasks[taskIndex]};
+
+    task.name = newName;
+
+    const tasks = [...this.state.tasks]
+    tasks[taskIndex]=task;
+
+    this.setState({tasks: tasks});
+   }
 
   render() {
     return (
@@ -51,6 +62,7 @@ class App extends Component {
        todos={this.state.tasks}
        handleChange = {this.handleChange}
        handleRemove = {this.handleRemove}
+       updateHandler = {this.updateHandler}
        />
 
       </div>
