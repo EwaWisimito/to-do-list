@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 
 
 class Task extends Component{
-    handleChange = (event) => {
-        console.log('ngnvf');
-        
-        this.props.task.complete = event.target
-    }
+
     render(){
-        const styles = this.props.complete
+        const styles = this.props.task.completed
         ? {textDecoration: 'line-through'}
         : {};
 
@@ -20,7 +16,7 @@ class Task extends Component{
                 <input
                 type="checkbox"
                 checked={this.props.task.completed}
-                onChange={this.handleChange}
+                onChange={this.props.handleChange}
                 />
                 </p>
              }
