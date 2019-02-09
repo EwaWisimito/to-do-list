@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TaskContainer from './TaskContainer';
+import CreateTask from './CreateTask';
 
 class App extends Component {
 
@@ -25,14 +26,24 @@ class App extends Component {
     this.setState({tasks: tasks});
    }
 
+   handleCreate = (name) => {
+     const tasks = [...this.state.tasks];
+     const task = {id: 5, name: name, completed: false};
+     tasks.push(task);
+     this.setState({tasks: tasks});
+   }
+
   render() {
     return (
       <div className="App">
+      <CreateTask
+      createHandler={this.handleCreate}
+      />
       <TaskContainer
-       todos={this.state.tasks} 
+       todos={this.state.tasks}
        handleChange = {this.handleChange}
        />
-       
+
       </div>
     );
   }
