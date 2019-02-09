@@ -27,8 +27,9 @@ class App extends Component {
    }
 
    handleCreate = (name) => {
+     const uuID = Math.floor(Math.random() * 1000000);
      const tasks = [...this.state.tasks];
-     const task = {id: 5, name: name, completed: false};
+     const task = {id: uuID , name: name, completed: false};
      tasks.push(task);
      this.setState({tasks: tasks});
    }
